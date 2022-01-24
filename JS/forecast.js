@@ -1,4 +1,4 @@
-const key = "OOGnMgJfdAQxIVzKQS13wRHt3RjoGA6L";
+const key = "Your AccuWeather API Key Goes Here";
 
 const getWeather = async (id) => {
   const baseUrl = "http://dataservice.accuweather.com/currentconditions/v1/";
