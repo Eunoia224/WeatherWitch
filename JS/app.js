@@ -25,11 +25,11 @@ const updateUI = (data) => {
   icon.setAttribute("src", iconSource);
 
   let timeSource = weather.IsDayTime ? "img/day.svg" : "img/night.svg"; //using ternary operator
-    // if (weather.IsDayTime) {
-    //   timeSource = "img/day.svg";
-    // } else {
-    //   timeSource = "img/night.svg";
-    // }
+  // if (weather.IsDayTime) {
+  //   timeSource = "img/day.svg";
+  // } else {
+  //   timeSource = "img/night.svg";
+  // }
   time.setAttribute("src", timeSource);
 
   if (card.classList.contains("d-none")) {
@@ -54,5 +54,12 @@ citySearch.addEventListener("submit", (e) => {
   citySearch.reset();
   updateCity(city)
     .then((data) => updateUI(data))
-    .catch((err) => console.log("ERror",err));
+    .catch((err) => console.log("ERror", err));
+
+  localStorage.setItem("city", city);
 });
+if (localStorage.getItem("city")) {
+  updateCity(localStorage.getItem("city"))
+    .then((data) => updateUI(data))
+    .catch((err) => console.log(err));
+}
